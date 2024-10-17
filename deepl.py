@@ -1,4 +1,5 @@
 import logging
+import os  # استيراد مكتبة os
 from telegram import Update
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackContext
 import requests
@@ -8,9 +9,9 @@ logging.basicConfig(format='%(asctime)s - %(name__) - %(levelname)s - %(message)
 logger = logging.getLogger(__name__)
 
 # توكن البوت
-TOKEN = '7190727472:AAEl3Et2eL8VP0CwVIIGTsRhD6xRd6vHINw'
+TOKEN = os.getenv('TOKEN')  # استخدم البيئة للحصول على توكن البوت
 # توكن DeepL API
-DEEPL_API_KEY = 'edb869d4-02fc-4981-b531-344a03dd21b8:fx'
+DEEPL_API_KEY = os.getenv('DEEPL_API_KEY')  # استخدم البيئة للحصول على API Key
 DEEPL_API_URL = 'https://api-free.deepl.com/v2/translate'
 
 # معرف المستخدم الخاص بك
